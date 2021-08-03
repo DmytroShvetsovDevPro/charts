@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import { Redirect, Route, BrowserRouter, Switch } from 'react-router-dom';
 
-function App() {
+import { Home } from './screens/Home';
+import { Recharts } from './screens/Recharts';
+import { Victory } from './screens/Victory';
+import { Nivo } from './screens/Nivo';
+
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/recharts" component={Recharts} />
+        <Route path="/victory" component={Victory} />
+        <Route path="/nivo" component={Nivo} />
+        <Redirect to="/" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
