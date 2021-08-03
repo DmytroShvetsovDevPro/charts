@@ -7,3 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.recharts-cartesian-axis line {
+  display: none;
+}
