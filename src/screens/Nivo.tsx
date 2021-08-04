@@ -1,336 +1,58 @@
 import { FC } from 'react';
 import { ResponsiveBump } from '@nivo/bump';
+import { ResponsiveLine } from '@nivo/line';
+import { BasicTooltip } from '@nivo/tooltip';
 
 import { Layout } from '../components/Layout';
 
-// const data = [
-//   {
-//     id: 'Serie 1',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 7,
-//       },
-//       {
-//         x: 2001,
-//         y: 10,
-//       },
-//       {
-//         x: 2002,
-//         y: 1,
-//       },
-//       {
-//         x: 2003,
-//         y: 5,
-//       },
-//       {
-//         x: 2004,
-//         y: 7,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 2',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 1,
-//       },
-//       {
-//         x: 2001,
-//         y: 2,
-//       },
-//       {
-//         x: 2002,
-//         y: 11,
-//       },
-//       {
-//         x: 2003,
-//         y: 9,
-//       },
-//       {
-//         x: 2004,
-//         y: 1,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 3',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 8,
-//       },
-//       {
-//         x: 2001,
-//         y: 6,
-//       },
-//       {
-//         x: 2002,
-//         y: 7,
-//       },
-//       {
-//         x: 2003,
-//         y: 7,
-//       },
-//       {
-//         x: 2004,
-//         y: 10,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 4',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 2,
-//       },
-//       {
-//         x: 2001,
-//         y: 3,
-//       },
-//       {
-//         x: 2002,
-//         y: 5,
-//       },
-//       {
-//         x: 2003,
-//         y: 1,
-//       },
-//       {
-//         x: 2004,
-//         y: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 5',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 11,
-//       },
-//       {
-//         x: 2001,
-//         y: 7,
-//       },
-//       {
-//         x: 2002,
-//         y: 12,
-//       },
-//       {
-//         x: 2003,
-//         y: 4,
-//       },
-//       {
-//         x: 2004,
-//         y: 3,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 6',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 3,
-//       },
-//       {
-//         x: 2001,
-//         y: 12,
-//       },
-//       {
-//         x: 2002,
-//         y: 3,
-//       },
-//       {
-//         x: 2003,
-//         y: 3,
-//       },
-//       {
-//         x: 2004,
-//         y: 5,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 7',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 6,
-//       },
-//       {
-//         x: 2001,
-//         y: 5,
-//       },
-//       {
-//         x: 2002,
-//         y: 6,
-//       },
-//       {
-//         x: 2003,
-//         y: 8,
-//       },
-//       {
-//         x: 2004,
-//         y: 6,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 8',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 12,
-//       },
-//       {
-//         x: 2001,
-//         y: 9,
-//       },
-//       {
-//         x: 2002,
-//         y: 2,
-//       },
-//       {
-//         x: 2003,
-//         y: 2,
-//       },
-//       {
-//         x: 2004,
-//         y: 11,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 9',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 10,
-//       },
-//       {
-//         x: 2001,
-//         y: 11,
-//       },
-//       {
-//         x: 2002,
-//         y: 8,
-//       },
-//       {
-//         x: 2003,
-//         y: 10,
-//       },
-//       {
-//         x: 2004,
-//         y: 9,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 10',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 5,
-//       },
-//       {
-//         x: 2001,
-//         y: 1,
-//       },
-//       {
-//         x: 2002,
-//         y: 10,
-//       },
-//       {
-//         x: 2003,
-//         y: 11,
-//       },
-//       {
-//         x: 2004,
-//         y: 4,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 11',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 4,
-//       },
-//       {
-//         x: 2001,
-//         y: 8,
-//       },
-//       {
-//         x: 2002,
-//         y: 9,
-//       },
-//       {
-//         x: 2003,
-//         y: 12,
-//       },
-//       {
-//         x: 2004,
-//         y: 12,
-//       },
-//     ],
-//   },
-//   {
-//     id: 'Serie 12',
-//     data: [
-//       {
-//         x: 2000,
-//         y: 9,
-//       },
-//       {
-//         x: 2001,
-//         y: 4,
-//       },
-//       {
-//         x: 2002,
-//         y: 4,
-//       },
-//       {
-//         x: 2003,
-//         y: 6,
-//       },
-//       {
-//         x: 2004,
-//         y: 8,
-//       },
-//     ],
-//   },
-// ];
+const customTheme = {
+  fontFamily: 'inherit',
+  crosshair: {
+    line: {
+      stroke: '#0058ff',
+      strokeDasharray: '2',
+    },
+  },
+};
 
 const lightweightData = [
   {
-    "id": "",
-    "data": [
+    id: 'currency',
+    color: '#0058ff',
+    data: [
       {
-        "x": 2000,
-        "y": 7
+        x: 'June 10',
+        y: 84.25,
       },
       {
-        "x": 2001,
-        "y": 10
+        x: '',
+        y: 86.25,
       },
       {
-        "x": 2002,
-        "y": 1
+        x: 'June 11',
+        y: 85.1,
       },
       {
-        "x": 2003,
-        "y": 5
+        x: 'June 12',
+        y: 86.7,
       },
       {
-        "x": 2004,
-        "y": 7
-      }
-    ]
+        x: 'June 13',
+        y: 83.8,
+      },
+      {
+        x: 'June 14',
+        y: 82.4,
+      },
+      {
+        x: 'June 15',
+        y: 85.6,
+      },
+      {
+        x: 'June 16',
+        y: 84.14,
+      },
+    ],
   },
 ];
 
@@ -338,6 +60,51 @@ export const Nivo: FC = () => {
   return (
     <Layout>
       <h1>Nivo</h1>
+
+      <div style={{ height: 420 }}>
+        <ResponsiveLine
+          tooltip={(input) => {
+            return (
+              <div className="nivo-custom-tooltip">{input.point.data.y}</div>
+            );
+          }}
+          theme={customTheme}
+          colors={(d) => d.color}
+          data={lightweightData}
+          margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+          // xScale={{ type: 'point' }}
+          yScale={{
+            type: 'linear',
+            min: 'auto',
+            max: 'auto',
+            stacked: true,
+            reverse: false,
+          }}
+          yFormat=" >-.2f"
+          axisTop={null}
+          axisLeft={null}
+          axisBottom={{
+            tickSize: 0,
+            tickPadding: 10,
+            tickRotation: 0,
+          }}
+          axisRight={{
+            tickSize: 0,
+            tickPadding: 10,
+            tickRotation: 0,
+          }}
+          enablePoints={false}
+          pointSize={10}
+          pointColor={{ theme: 'background' }}
+          pointBorderWidth={2}
+          pointBorderColor={{ from: 'serieColor' }}
+          enableGridX={false}
+          crosshairType="x"
+          useMesh={true}
+        />
+      </div>
+
+      <hr />
 
       <div style={{ height: 420 }}>
         <ResponsiveBump
