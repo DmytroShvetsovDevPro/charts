@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { ResponsiveBump } from '@nivo/bump';
 
+import { Layout } from '../components/Layout';
+
 // const data = [
 //   {
 //     id: 'Serie 1',
@@ -334,43 +336,45 @@ const lightweightData = [
 
 export const Nivo: FC = () => {
   return (
-    <div style={{ height: 400 }}>
-      <h1>Nivo 2</h1>
+    <Layout>
+      <h1>Nivo</h1>
 
-      <ResponsiveBump
-        data={lightweightData}
-        margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
-        // colors={{ scheme: 'blues' }}
-        // lineWidth={3}
-        // activeLineWidth={6}
-        // inactiveLineWidth={3}
-        // inactiveOpacity={0.15}
-        pointSize={10}
-        activePointSize={16}
-        inactivePointSize={0}
-        pointColor={{ theme: 'background' }}
-        pointBorderWidth={3}
-        activePointBorderWidth={3}
-        pointBorderColor={{ from: 'serie.color' }}
-        axisLeft={null}
-        axisTop={null}
-        axisBottom={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: '',
-          legendPosition: 'middle',
-          legendOffset: 32,
-        }}
-        axisRight={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: '',
-          legendPosition: 'middle',
-          legendOffset: -40,
-        }}
-      />
-    </div>
+      <div style={{ height: 420 }}>
+        <ResponsiveBump
+          data={lightweightData}
+          margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
+          // colors={{ scheme: 'blues' }}
+          // lineWidth={3}
+          // activeLineWidth={6}
+          // inactiveLineWidth={3}
+          // inactiveOpacity={0.15}
+          pointSize={10}
+          activePointSize={16}
+          inactivePointSize={0}
+          pointColor={{ theme: 'background' }}
+          pointBorderWidth={3}
+          activePointBorderWidth={3}
+          pointBorderColor={{ from: 'serie.color' }}
+          axisLeft={null}
+          axisTop={null}
+          axisBottom={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: '',
+            legendPosition: 'middle',
+            legendOffset: 32,
+          }}
+          axisRight={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: '',
+            legendPosition: 'middle',
+            legendOffset: -40,
+          }}
+        />
+      </div>
+    </Layout>
   );
 };

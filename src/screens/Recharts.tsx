@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { LineChart, Line, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
+import { Layout } from '../components/Layout';
+
 const data = [
   { name: 'Page A', uv: 400 },
   { name: 'Page B', uv: 300 },
@@ -24,10 +26,10 @@ const CustomizedDot: FC<any> = (props) => {
 
 export const Recharts: FC = () => {
   return (
-    <div>
-      <h1>Recharts 1</h1>
+    <Layout>
+      <h1>Recharts</h1>
 
-      <div style={{ maxWidth: 420, height: 300 }}>
+      <div style={{ height: 300 }}>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
             <Line type="monotone" dataKey="uv" stroke="#0058ff" dot={<CustomizedDot />} />
@@ -38,6 +40,6 @@ export const Recharts: FC = () => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-    </div>
+    </Layout>
   );
 };

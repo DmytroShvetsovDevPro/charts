@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import { VictoryChart, VictoryLine, VictoryVoronoiContainer } from 'victory';
 
+import { Layout } from '../components/Layout';
+
 export const Victory: FC = () => {
   return (
-    <div>
-      <h1>Victory 3</h1>
+    <Layout>
+      <h1>Victory</h1>
 
-      <div style={{ maxWidth: 400 }}>
-        <VictoryChart>
+      <VictoryChart>
           <VictoryLine
             // labelComponent={
             //   <VictoryTooltip
@@ -42,7 +43,6 @@ export const Victory: FC = () => {
             ]}
           />
         </VictoryChart>
-      </div>
-    </div>
+    </Layout>
   );
 };
