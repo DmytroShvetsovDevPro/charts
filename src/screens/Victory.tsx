@@ -1,26 +1,22 @@
 import { FC } from 'react';
-import { VictoryChart, VictoryLine, VictoryVoronoiContainer } from 'victory';
+import { VictoryChart, VictoryLine, VictoryVoronoiContainer, VictoryZoomContainer, VictoryTooltip } from 'victory';
 
 import { Layout } from '../components/Layout';
+import { data as chartData } from '../data';
 
 export const Victory: FC = () => {
   return (
     <Layout>
       <h1>Victory</h1>
 
-      <VictoryChart>
+      <div style={{ overflow: 'hidden' }}>
+        <VictoryChart
+          containerComponent={
+            <VictoryZoomContainer />
+          }
+        >
           <VictoryLine
-            // labelComponent={
-            //   <VictoryTooltip
-            //     cornerRadius={({ datum }) => datum.x > 6 ? 0 : 20}
-            //     pointerLength={({ datum }) => datum.y > 0 ? 5 : 20}
-            //     flyoutStyle={{
-            //       stroke: ({ datum }) => datum.x === 10
-            //         ? "tomato"
-            //         : "black"
-            //     }}
-            //   />
-            // }
+            labelComponent={<VictoryTooltip />}
             animate={{
               duration: 1000,
               onLoad: { duration: 1000 }
@@ -40,9 +36,11 @@ export const Victory: FC = () => {
               { x: 3, y: 5, label: '5' },
               { x: 4, y: 4, label: '4' },
               { x: 5, y: 7, label: '7' },
+              { x: 6, y: 7, label: '7' },
             ]}
           />
         </VictoryChart>
+      </div>
     </Layout>
   );
 };

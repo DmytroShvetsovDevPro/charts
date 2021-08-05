@@ -15,7 +15,7 @@ body {
 }
 
 .app-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -53,6 +53,29 @@ nav a.active {
 /* Recharts overrides */
 .recharts-cartesian-axis line {
   display: none;
+}
+
+.recharts-tooltip-wrapper {
+  width: 100%;
+  transform: translate(0, 0) !important;
+  text-align: center;
+}
+
+.recharts-custom-tooltip {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #0058ff;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 12px;
+}
+
+.recharts-tooltip-cursor {
+  fill: blueviolet;
 }
 
 /* Nivo overrides */
