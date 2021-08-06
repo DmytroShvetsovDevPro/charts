@@ -57,17 +57,32 @@ nav a.active {
 
 .recharts-tooltip-wrapper {
   width: 100%;
-  transform: translate(0, 0) !important;
+  transform: translate(0, -20px) !important;
   text-align: center;
 }
 
 .recharts-custom-tooltip {
-  display: inline-block;
+  display: inline-flex;
   padding: 4px 8px;
   background: #0058ff;
   color: #fff;
   border-radius: 4px;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.recharts-custom-tooltip > div {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  padding: 2px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.recharts-custom-tooltip > div > img {
+  width: 16px;
+  height: 16px;
 }
 
 .recharts-cartesian-axis-tick-value {

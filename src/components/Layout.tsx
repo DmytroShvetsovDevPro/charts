@@ -12,10 +12,10 @@ export const Layout: FC = ({ children }) => {
                 <NavLink to="/recharts" activeClassName="active">Recharts</NavLink>  
               </li>
               <li>
-                <NavLink to="/victory" activeClassName="active">Victory</NavLink>  
+                <NavLink to="/nivo" activeClassName="active">Nivo</NavLink>  
               </li>
               <li>
-                <NavLink to="/nivo" activeClassName="active">Nivo</NavLink>  
+                <NavLink to="/victory" activeClassName="active">Victory</NavLink>
               </li>
             </ul>
           </nav>

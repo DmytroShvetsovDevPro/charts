@@ -1,10 +1,25 @@
 import { FC } from 'react';
-import { ResponsiveBump } from '@nivo/bump';
 import { ResponsiveLine } from '@nivo/line';
-import { BasicTooltip } from '@nivo/tooltip';
 
 import { Layout } from '../components/Layout';
-import { data as chartData } from '../data';
+import { formatDate } from '../utils';
+
+const data = [
+  { x: formatDate(1621320000000), y: 84.5 },
+  { x: formatDate(1622320000000), y: 87.2 },
+  { x: formatDate(1623320000000), y: 85.1 },
+  { x: formatDate(1624320000000), y: 86.16 },
+  { x: formatDate(1625320000000), y: 84.64 },
+  { x: formatDate(1626320000000), y: 82.64 },
+  { x: formatDate(1627320000000), y: 81.64 },
+  { x: formatDate(1628320000000), y: 80.64 },
+  { x: formatDate(1629320000000), y: 85.64 },
+  { x: formatDate(1629320000000), y: 80.64 },
+  { x: formatDate(1629320000000), y: 81.64 },
+  { x: formatDate(1629320000000), y: 82.64 },
+  { x: formatDate(1629320000000), y: 83.64 },
+  { x: formatDate(1629320000000), y: 84.64 },
+];
 
 const customTheme = {
   fontFamily: 'inherit',
@@ -20,7 +35,7 @@ const lightweightData = [
   {
     id: 'currency',
     color: '#0058ff',
-    data: chartData,
+    data,
   },
 ];
 
@@ -40,7 +55,6 @@ export const Nivo: FC = () => {
           colors={(d) => d.color}
           data={lightweightData}
           margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-          // xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',
             min: 'auto',
@@ -69,45 +83,6 @@ export const Nivo: FC = () => {
           enableGridX={false}
           crosshairType="x"
           useMesh={true}
-        />
-      </div>
-
-      <hr />
-
-      <div style={{ height: 420 }}>
-        <ResponsiveBump
-          data={lightweightData}
-          margin={{ top: 40, right: 100, bottom: 40, left: 60 }}
-          // colors={{ scheme: 'blues' }}
-          // lineWidth={3}
-          // activeLineWidth={6}
-          // inactiveLineWidth={3}
-          // inactiveOpacity={0.15}
-          pointSize={10}
-          activePointSize={16}
-          inactivePointSize={0}
-          pointColor={{ theme: 'background' }}
-          pointBorderWidth={3}
-          activePointBorderWidth={3}
-          pointBorderColor={{ from: 'serie.color' }}
-          axisLeft={null}
-          axisTop={null}
-          axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: '',
-            legendPosition: 'middle',
-            legendOffset: 32,
-          }}
-          axisRight={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: '',
-            legendPosition: 'middle',
-            legendOffset: -40,
-          }}
         />
       </div>
     </Layout>

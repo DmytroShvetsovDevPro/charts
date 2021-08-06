@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { VictoryChart, VictoryLine, VictoryVoronoiContainer, VictoryZoomContainer, VictoryTooltip } from 'victory';
 
 import { Layout } from '../components/Layout';
-import { data as chartData } from '../data';
 
 export const Victory: FC = () => {
   return (
